@@ -1,0 +1,15 @@
+name: 'Hello World Docker Action'
+description: 'A sample GitHub Action using Docker.'
+inputs:
+  who-to-greet:        # define an input parameter
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+outputs:
+  time:
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
