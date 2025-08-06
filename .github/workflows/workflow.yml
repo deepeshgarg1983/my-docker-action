@@ -1,0 +1,14 @@
+name: Test Docker Action
+
+on: [push]
+
+jobs:
+  docker-action-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        id: hello
+        with:
+          who-to-greet: 'GitHub User'
+      - run: echo "The time was ${{ steps.hello.outputs.time }}"
